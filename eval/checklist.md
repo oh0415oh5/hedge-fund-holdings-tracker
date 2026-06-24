@@ -28,6 +28,30 @@
 - Research-only guardrails block personalized buy/sell/hold advice, price targets, allocation guidance, and fabricated metrics.
 - Sources are sufficient for audit.
 
+## Pre-Delivery Chart Verification (COMPLETE BEFORE DECLARING DONE)
+
+Run through each step in order before delivering the PDF:
+
+1. Open the rendered PDF and inspect every page.
+2. Confirm chart 1 (Top-10 Holdings horizontal bar) is visibly rendered — bars in `--accent` (#B5311A), issuer names in JetBrains Mono on Y-axis.
+3. Confirm chart 2 (Portfolio Concentration stacked bar or donut) is visibly rendered — top 5 in `--accent`, top 10 in `--ink-soft`, top 25 in `--ink-mute`, remainder in `--rule`.
+4. Confirm chart 3 (QoQ Change Attribution grouped bar) is visibly rendered — new positions and adds in `--positive` (#1FAE7B), exits and trims in `--accent`.
+5. Confirm chart 4 (Put/Call Exposure) is visibly rendered IF the filing contains put/call rows. If no put/call rows exist, document that explicitly.
+6. If any chart shows a broken-image placeholder, stop — regenerate the PDF using base64 data URI embedding or direct PDF-stream rendering. Do NOT deliver a PDF with broken charts.
+7. Confirm the Legal Disclaimer Block appears above the Branded Bottom Block on the final page of the PDF.
+8. Confirm the Branded Bottom Block is on the FINAL page of the PDF (not the cover, not a header).
+9. Confirm the WSP logo renders at natural aspect ratio (height set only, width auto).
+
+## Advisory Board Final-Pass (recommended before delivery)
+
+Run each lens from `eval/advisory-board.md` before declaring the run complete:
+
+- [ ] SEC Filing Specialist: filer identity, CIK, accession number, amendment check, EDGAR links present?
+- [ ] Portfolio Research Lead: concentration metrics from filing-reported values; new/exit/add/trim clearly separated?
+- [ ] Data Quality Reviewer: CUSIP-first comparison; put/call fields preserved; ticker mapping confidence labeled?
+- [ ] Visualization Reviewer: all 4 required charts present, inline-embedded, WSP palette, neobrutalism styling?
+- [ ] Compliance Reviewer: research-only framing; no advice/targets; scheduling prompt included; CTA exact?
+
 ## V4 QA Fail Rules
 
 Fail the output if ANY of the following are present:

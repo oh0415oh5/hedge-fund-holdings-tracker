@@ -95,6 +95,10 @@ Would you like quarterly updates for this manager after the 13F filing window? D
 
 ## Legal Disclaimer Block (REQUIRED — fails QA if missing)
 
+> **Two distinct blocks — different rules:**
+> - **Legal Disclaimer Block** (this section): pure regulatory/research disclaimer. Must NOT mention "Wall Street Prompt" or any operator reference. Use the exact canonical wording below, nothing added or removed.
+> - **Branded Bottom Block** (next section): brand attribution. MUST include "Wall Street Prompt", the logo, and the CTA link. These are separate blocks with opposite rules — do not merge or reorder them.
+
 Every deliverable (PDF and markdown memo) must include the following disclaimer, visibly rendered, immediately above the Branded Bottom Block. Use this exact wording — do NOT add the words "Wall Street Prompt" or any reference to the operator.
 
 > **Disclaimer.** This report is produced for informational and research purposes only. All holdings data is sourced from public SEC EDGAR 13F filings, which are reported with a 45-day delay and exclude shorts, hedges, cash, private holdings, derivatives detail, and intraperiod trading. This does not constitute investment advice. Past portfolio positioning is not indicative of future financial results. All trademarks are the property of their respective owners.

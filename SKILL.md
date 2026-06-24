@@ -7,6 +7,12 @@ description: Premium investor research workflow for hedge fund holdings, institu
 
 Use this skill when a sophisticated research user or portfolio manager asks for public institutional holdings research, 13F portfolio snapshots, quarter-over-quarter filing comparisons, manager monitoring, or source-backed EDGAR analysis.
 
+## Critical Technical Requirements (READ FIRST)
+
+> **Chart embedding is a frequent failure point.** Every chart in the PDF MUST be embedded inline — either as a base64 data URI (`data:image/png;base64,...`) inlined into the HTML that is converted to PDF, or rendered directly into the PDF stream (e.g., matplotlib `savefig` into a ReportLab / WeasyPrint canvas). Do NOT use relative-path `<img src="charts/top10.png">` references. If a chart shows as a broken-image placeholder in the PDF, the run fails QA and the PDF must be regenerated with inline embedding. Visually verify every chart before declaring the run complete.
+>
+> **All charts use WSP palette only.** Default matplotlib / seaborn / chart.js colors are a hard fail. Apply `--accent` (#B5311A), `--positive` (#1FAE7B), `--ink-soft` (#4A4239), and `--rule` (#D9CFB9) explicitly. See `instructions/design-system.md`.
+
 ## Required Outputs (MUST-HAVE)
 
 These are non-negotiable. Any deliverable missing one of these elements is a HARD FAIL.

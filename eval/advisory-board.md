@@ -23,8 +23,13 @@ Use these review lenses before finalizing a deliverable.
 
 ## Visualization Reviewer
 
-- If visuals were requested, are they legible, useful, and linked to auditable filing data?
-- Does the deliverable avoid unnecessary dashboard work when a source-backed table is enough?
+- Are all 4 required charts present in the PDF (top-10 holdings, concentration, QoQ attribution, put/call if applicable)?
+- Is every chart visibly rendered — no broken-image placeholders?
+- Are charts embedded inline (base64 data URI or direct PDF-stream render), NOT via relative-path `<img src="...">` references?
+- Do all charts use the WSP palette exclusively: `--accent` (#B5311A) for primary bars, `--positive` (#1FAE7B) for adds/calls, `--ink-soft` (#4A4239) for secondary series, `--rule` (#D9CFB9) for gridlines/axes?
+- Do charts follow neobrutalism rules: 3px solid `--ink` border, hard offset shadow, no gradients, no soft shadows?
+- Are fonts correct: Inter for axis labels, JetBrains Mono for tickers/CUSIPs on chart axes?
+- Is each chart visually traceable to the specific filing fields it represents?
 
 ## Compliance Reviewer
 
