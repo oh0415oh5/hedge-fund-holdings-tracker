@@ -1,0 +1,9 @@
+[package]
+name = "cursort"
+version = "0.1.0"
+edition = "2021"
+description = "A small CLI for sorting lines from files or stdin"
+
+[[bin]]
+name = "cursort"
+path = "src/main.rs"
