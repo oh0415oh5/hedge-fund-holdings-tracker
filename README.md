@@ -2,6 +2,8 @@
 
 **cursort** is a CLI tool that fetches SEC EDGAR 13F filings for any institutional manager and produces a research-grade PDF report, a markdown memo, and a CSV holdings table — all styled with the Wall Street Prompt design system.
 
+This repository also ships a **Cursor Agent Skill** at `.cursor/skills/hedge-fund-holdings-tracker/` for in-IDE agent workflows.
+
 ## Quick start
 
 ```bash
@@ -35,6 +37,30 @@ cursort --name "Tiger Global" --compare
 
 # Specific period, no PDF
 cursort --cik 0001911216 --period 2024-09-30 --no-pdf
+```
+
+## Alternative: Cursor skill scripts
+
+```bash
+pip install -r requirements.txt
+python3 .cursor/skills/hedge-fund-holdings-tracker/scripts/generate_report.py \
+  --cik 0001067983 \
+  --output-dir output/berkshire \
+  --compare-prior
+```
+
+## Project layout
+
+```
+.cursor/skills/hedge-fund-holdings-tracker/
+├── SKILL.md
+├── assets/wsp_logo.png
+├── references/          # methodology, design system, eval docs
+└── scripts/             # agent-callable pipeline
+
+src/                     # cursort Python package
+tests/                   # unit tests
+pyproject.toml           # pip install -e .
 ```
 
 ## Output
